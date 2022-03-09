@@ -1,0 +1,17 @@
+{
+  "name": "daily",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yixihan/daily.git",
+  "author": "yixihan <yixihan20010617@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.9.7",
+    "vuepress-theme-reco": "1.6.10"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs --temp .temp",
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  }
+}
