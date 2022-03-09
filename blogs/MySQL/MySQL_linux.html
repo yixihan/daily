@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MySQL_linux安装 | 我的专属摸鱼小屋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/144.png">
+    <link rel="mask-icon" href="/icons/144.png" color="#3eaf7c">
+    <meta name="description" content="MySQL5.7 Linux 安装教程">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="易曦翰的个人博客">
+    <meta name="author" content="易曦翰">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.f712dbe4.css" as="style"><link rel="preload" href="/assets/js/app.f12c8360.js" as="script"><link rel="preload" href="/assets/js/3.37e70878.js" as="script"><link rel="preload" href="/assets/js/1.2f593495.js" as="script"><link rel="preload" href="/assets/js/22.4724fc4f.js" as="script"><link rel="prefetch" href="/assets/js/10.ecd8d330.js"><link rel="prefetch" href="/assets/js/11.7d717c7b.js"><link rel="prefetch" href="/assets/js/12.f12378af.js"><link rel="prefetch" href="/assets/js/13.c2d8bdbf.js"><link rel="prefetch" href="/assets/js/14.7bf8c02b.js"><link rel="prefetch" href="/assets/js/15.b7cd54f5.js"><link rel="prefetch" href="/assets/js/16.71e2f4b3.js"><link rel="prefetch" href="/assets/js/17.f5f9dcf3.js"><link rel="prefetch" href="/assets/js/18.a2ad33d3.js"><link rel="prefetch" href="/assets/js/19.2cbd7056.js"><link rel="prefetch" href="/assets/js/20.9ad4cf2f.js"><link rel="prefetch" href="/assets/js/21.468f6ad0.js"><link rel="prefetch" href="/assets/js/23.d7e30c5e.js"><link rel="prefetch" href="/assets/js/24.8a1e2f43.js"><link rel="prefetch" href="/assets/js/25.c1aec66f.js"><link rel="prefetch" href="/assets/js/26.0b31ee93.js"><link rel="prefetch" href="/assets/js/27.30be2559.js"><link rel="prefetch" href="/assets/js/28.96d206f7.js"><link rel="prefetch" href="/assets/js/29.1346fb10.js"><link rel="prefetch" href="/assets/js/30.65849560.js"><link rel="prefetch" href="/assets/js/31.a4d2dc2c.js"><link rel="prefetch" href="/assets/js/32.6fcb3f72.js"><link rel="prefetch" href="/assets/js/33.82ef57f7.js"><link rel="prefetch" href="/assets/js/34.773eafaa.js"><link rel="prefetch" href="/assets/js/4.436516e6.js"><link rel="prefetch" href="/assets/js/5.19066a29.js"><link rel="prefetch" href="/assets/js/6.0d55147b.js"><link rel="prefetch" href="/assets/js/7.676aa6ed.js"><link rel="prefetch" href="/assets/js/8.8188cdf3.js"><link rel="prefetch" href="/assets/js/9.6a45610a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f712dbe4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1aefc0b4><div data-v-1aefc0b4><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1aefc0b4 data-v-1aefc0b4><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-1aefc0b4 data-v-1aefc0b4><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>我的专属摸鱼小屋</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>易曦翰的个人博客</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>易曦翰</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-1aefc0b4><header class="navbar" data-v-1aefc0b4><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="我的专属摸鱼小屋" class="logo"> <span class="site-name">我的专属摸鱼小屋</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaSE/" class="nav-link"><i class="undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MySQL/" class="nav-link"><i class="undefined"></i>
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Zookeeper/" class="nav-link"><i class="undefined"></i>
+  Zookeeper
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-gongju"></i>
+      工具箱
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.xpdf.cn/?s" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  超级 PDF
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://cordcloud.one/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  cordcloud
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://tool.lu/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  在线工具箱
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://asciiflow.com/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  在线思维导图
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.bootschool.net/ascii" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  ASCII 文字在线生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.pexels.com/zh-cn" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  在线高清图片
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      我
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yixihan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/yixihan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1aefc0b4></div> <aside class="sidebar" data-v-1aefc0b4><div class="personal-info-wrapper" data-v-39576ba9 data-v-1aefc0b4><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-39576ba9> <h3 class="name" data-v-39576ba9>
+    易曦翰
+  </h3> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>24</h3> <h6 data-v-39576ba9>文章</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>17</h3> <h6 data-v-39576ba9>标签</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaSE/" class="nav-link"><i class="undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-item"><!----> <a href="/categories/MySQL/" class="nav-link"><i class="undefined"></i>
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Nginx/" class="nav-link"><i class="undefined"></i>
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/categories/RabbitMQ/" class="nav-link"><i class="undefined"></i>
+  RabbitMQ
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringCloud/" class="nav-link"><i class="undefined"></i>
+  SpringCloud
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Zookeeper/" class="nav-link"><i class="undefined"></i>
+  Zookeeper
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-gongju"></i>
+      工具箱
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.xpdf.cn/?s" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  超级 PDF
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://cordcloud.one/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  cordcloud
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://tool.lu/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  在线工具箱
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://asciiflow.com/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  在线思维导图
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.bootschool.net/ascii" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  ASCII 文字在线生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.pexels.com/zh-cn" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  在线高清图片
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      我
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yixihan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/yixihan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><a href="/blogs/MySQL/MySQL_linux.html" aria-current="page" class="active sidebar-link">MySQL_linux安装</a></li><li><a href="/blogs/MySQL/MySQL1.html" class="sidebar-link">MySQL1</a></li><li><a href="/blogs/MySQL/MySQL2.html" class="sidebar-link">MySQL2</a></li><li><a href="/blogs/MySQL/MySQL3.html" class="sidebar-link">MySQL3</a></li><li><a href="/blogs/MySQL/MySQL4.html" class="sidebar-link">MySQL4</a></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-1aefc0b4><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>MySQL_linux安装</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><span data-v-25ba6db2>易曦翰</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-1aefc0b4><main class="page"><section><div class="page-title"><h1 class="title">MySQL_linux安装</h1> <div data-v-f875f3fc><i class="iconfont reco-account" data-v-f875f3fc><span data-v-f875f3fc>易曦翰</span></i> <i class="iconfont reco-date" data-v-f875f3fc><span data-v-f875f3fc>2022-3-9</span></i> <i class="iconfont reco-eye" data-v-f875f3fc><span id="/blogs/MySQL/MySQL_linux.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-f875f3fc><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>Linux</span><span class="tag-item" data-v-f875f3fc>MySQL</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="linux-安装-mysql"><a href="#linux-安装-mysql" class="header-anchor">#</a> Linux 安装 MySQL</h1> <h2 id="安装-mysql"><a href="#安装-mysql" class="header-anchor">#</a> 安装 MySQL</h2> <blockquote><p>下载并安装 MySQL 官方的 Yum Repository</p></blockquote> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">wget</span> -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>yum 安装 Yum Repository</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>yum -y <span class="token function">install</span> mysql57-community-release-el7-10.noarch.rpm
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p></p> <blockquote><p>安装 MySQL 服务器</p></blockquote> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>yum -y <span class="token function">install</span> mysql-community-server
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>以上三个指令, 最后出现 complete 即证明无错误</p> <p>可以输入 <code>mysql --version</code> 进行检查</p> <p><img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105184115.png" alt="1"></p> <p>ps : 可能出现以下问题</p> <p><img src="/assets/imgs/MySQL3.assets/image-20220303190048146.png" alt="image-20220303190048146"></p> <p>解决方法 :</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>输入 
+<span class="token function">rpm</span> --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+再输入
+yum -y <span class="token function">install</span> mysql-community-server
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="mysql-数据库设置"><a href="#mysql-数据库设置" class="header-anchor">#</a> MySQL 数据库设置</h2> <blockquote><p>MySQL 常用命令</p></blockquote> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 启动 MySQL</span>
+systemctl start mysqld.service
+
+<span class="token comment"># 重启 MySQL</span>
+systemctl restart mysqld.service
+
+<span class="token comment"># 停止 MySQL</span>
+systemctl stop mysqld.service
+
+<span class="token comment"># 查看 MySQL 运行状态</span>
+systemctl status mysqld.service
+
+<span class="token comment"># 进入数据库</span>
+mysql -uroot -p
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p></p> <ol><li><p>启动 MySQL 服务器</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>systemctl start mysqld.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>只要不出任何消息就没问题
+ </p></li> <li><p>查看 MySQL 数据库状态</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>systemctl status mysqld.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105184536.png" alt="2"></p></li> <li><p>查看 root 密码</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">grep</span> <span class="token string">&quot;password&quot;</span> /var/log/mysqld.log 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105184757.png" alt="3"></p></li> <li><p>进入数据库</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>mysql -uroot -p
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>再输入密码, 进入会话中</p> <p><img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105191836.png" alt="4"></p></li> <li><p>修改密码</p> <div class="language-sql line-numbers-mode"><pre class="language-sql"><code><span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'new password'</span><span class="token punctuation">;</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span><span class="token variable">@'localhost'</span> IDENTIFIED <span class="token keyword">BY</span> <span class="token string">'W6YnvKnLzpSFNGuc.'</span><span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>新密码必须包含 大小写字母数字和特殊符号(,/';:等)
+ </p></li> <li><p>开启 MySQL 的全程访问</p> <div class="language-sql line-numbers-mode"><pre class="language-sql"><code><span class="token keyword">grant</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">to</span> <span class="token string">'root'</span><span class="token variable">@'%'</span> identified <span class="token keyword">by</span> <span class="token string">'password'</span> <span class="token keyword">with</span> <span class="token keyword">grant</span> <span class="token keyword">option</span><span class="token punctuation">;</span>
+<span class="token keyword">grant</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">to</span> <span class="token string">'root'</span><span class="token variable">@'%'</span> identified <span class="token keyword">by</span> <span class="token string">'W6YnvKnLzpSFNGuc.'</span> <span class="token keyword">with</span> <span class="token keyword">grant</span> <span class="token keyword">option</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>密码必须包含 大小写字母数字和特殊符号(,/';:等)
+若指向指定的ip地址才能访问 MySQL, 可以将 <code>'root'@'%'</code> 修改为 <code>'root'@'192.168.0.1'</code></p></li> <li><p>最后刷新退出</p> <div class="language-sql line-numbers-mode"><pre class="language-sql"><code>flush <span class="token keyword">privileges</span><span class="token punctuation">;</span>
+<span class="token keyword">exit</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p></p></li> <li><p>修改 mysql 默认端口号 (可选, 若搭建在服务器上, 则推荐)</p> <ol><li><p>vim 打开 my.cnf 配置文件</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">vim</span> /etc/my.cnf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p></p></li> <li><p>添加如下信息</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">1617</span> <span class="token comment"># 端口号自行选择</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105192642.png" alt="1"></p></li> <li><p>重启 MySQL 服务</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>systemctl restart mysqld.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果出现 <code>Job for mysqld.service failed because the control process exited with error code</code> 错误, 则检查 my.cnf 是否书写正确
+ </p></li> <li><p>查看端口号是否已被修改
+登录 MySQL</p> <div class="language-sql line-numbers-mode"><pre class="language-sql"><code>mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p
+<span class="token keyword">show</span> <span class="token keyword">global</span> variables <span class="token operator">like</span> <span class="token string">'port'</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105193247.png" alt="1"></p></li></ol></li> <li><p>开放 MySQL 端口号</p> <ol><li><p>检查防火墙是否开启</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>systemctl status firewalld
+或者
+firewall-cmd --state
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>若未安装防火墙, 则不管</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>yum <span class="token function">install</span> firewalld firewalld-config <span class="token comment"># 安装防火墙</span>
+systemctl start firewalld.service <span class="token comment"># 开启防火墙</span>
+
+<span class="token comment"># 其余常用命令</span>
+systemctl stop firewalld <span class="token comment"># 禁用防火墙</span>
+systemctl <span class="token builtin class-name">enable</span> firewalld <span class="token comment"># 设置开机自启防火墙</span>
+sytemctl disable firewalld <span class="token comment"># 停止并禁用开机自启</span>
+firewall-cmd --reload <span class="token comment"># 重启防火墙</span>
+<span class="token function">service</span> firewalld restart <span class="token comment"># 重启防火墙</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div></li> <li><p>开放端口号</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">1617</span>/tcp --permanent
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li> <li><p>重启防火墙</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>firewall-cmd --reload
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>出现 success 信息就算成功
+ </p></li></ol></li> <li><p>更改 mysql 的语言 (后面有完整配置)</p> <ol><li><p>重新登录 MySQL, 并输入 <code>status</code></p> <p><img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105194034.png" alt="1"></p> <p>正常刚安装上面两个编码集不是 utf8, 需要更改
+ </p></li> <li><p>更改编码集</p> <p>退出 MySQL, 进入 <code>/etc/my.cnf</code></p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">vim</span> /etc/my.cnf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>增加如下几行
+<img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105194256.png" alt="1"></p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+default-character-set<span class="token operator">=</span>utf8
+
+<span class="token assign-left variable">socket</span><span class="token operator">=</span>/var/lib/mysql/mysql.sock
+character-set-server<span class="token operator">=</span>utf8
+collation-server<span class="token operator">=</span>utf8_general_ci
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p></p></li> <li><p>重启 MySQL</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>systemctl restart mysqld.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p></p></li> <li><p>再次查看, 确认已更改
+ </p></li></ol></li> <li><p>最后, 使用可视化数据库管理软件连接 MySQL</p> <p><img src="/assets/imgs/MySQL3.assets/QQ%E6%88%AA%E5%9B%BE20211105194651.png" alt="1"></p></li></ol> <p><strong>MySQL安装完成!</strong></p> <h2 id="my-cnf-完整配置"><a href="#my-cnf-完整配置" class="header-anchor">#</a> my.cnf 完整配置</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+port <span class="token operator">=</span> <span class="token number">1617</span>
+socket <span class="token operator">=</span> /tmp/mysql.sock
+default-character-set<span class="token operator">=</span>utf8mb4
+
+<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+no-auto-rehash
+default-character-set <span class="token operator">=</span> utf8mb4
+
+
+<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+
+<span class="token comment">##############################基础设置#####################################</span>
+
+<span class="token comment">#Mysql服务的唯一编号 每个mysql服务Id需唯一</span>
+server-id <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">#数据库错误日志文件</span>
+log_error <span class="token operator">=</span> error.log
+
+<span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
+symbolic-links<span class="token operator">=</span><span class="token number">0</span>
+
+pid-file<span class="token operator">=</span>/var/run/mysqld/mysqld.pid
+
+<span class="token comment">#服务端口号 默认3306</span>
+port <span class="token operator">=</span> <span class="token number">1617</span>
+
+<span class="token comment">#mysql安装根目录</span>
+basedir <span class="token operator">=</span> /var/lib/mysql
+
+<span class="token comment">#mysql数据文件所在位置</span>
+datadir <span class="token operator">=</span> /var/lib/mysql
+
+<span class="token comment">#临时目录 比如load data infile会用到</span>
+tmpdir  <span class="token operator">=</span> /tmp
+
+<span class="token comment">#设置socke文件所在目录</span>
+socket  <span class="token operator">=</span> /tmp/mysql.sock
+<span class="token comment">#数据库默认字符集,主流字符集支持一些特殊表情符号（特殊表情符占用4个字节）</span>
+character-set-server <span class="token operator">=</span> utf8mb4
+
+<span class="token comment">#数据库字符集对应一些排序等规则，注意要和character-set-server对应</span>
+collation-server <span class="token operator">=</span> utf8mb4_general_ci
+
+<span class="token comment">#设置client连接mysql时的字符集,防止乱码</span>
+<span class="token assign-left variable">init_connect</span><span class="token operator">=</span>‘SET NAMES utf8mb4‘
+
+<span class="token comment">#是否对sql语句大小写敏感，1表示不敏感</span>
+lower_case_table_names <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">#最大连接数</span>
+max_connections <span class="token operator">=</span> <span class="token number">400</span>
+
+<span class="token comment">#最大错误连接数</span>
+max_connect_errors <span class="token operator">=</span> <span class="token number">1000</span>
+
+<span class="token comment">#TIMESTAMP如果没有显示声明NOT NULL，允许NULL值</span>
+explicit_defaults_for_timestamp <span class="token operator">=</span> <span class="token boolean">true</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br></div></div><blockquote><p>超级详细版</p></blockquote> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+port <span class="token operator">=</span> <span class="token number">3306</span>
+socket <span class="token operator">=</span> /tmp/mysql.sock
+
+<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+
+<span class="token comment">###############################基础设置#####################################</span>
+
+<span class="token comment">#Mysql服务的唯一编号 每个mysql服务Id需唯一</span>
+server-id <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">#服务端口号 默认3306</span>
+port <span class="token operator">=</span> <span class="token number">3306</span>
+
+<span class="token comment">#mysql安装根目录</span>
+basedir <span class="token operator">=</span> /opt/mysql
+
+<span class="token comment">#mysql数据文件所在位置</span>
+datadir <span class="token operator">=</span> /opt/mysql/data
+
+<span class="token comment">#临时目录 比如load data infile会用到</span>
+tmpdir  <span class="token operator">=</span> /tmp
+
+<span class="token comment">#设置socke文件所在目录</span>
+socket  <span class="token operator">=</span> /tmp/mysql.sock
+
+<span class="token comment">#主要用于MyISAM存储引擎,如果多台服务器连接一个数据库则建议注释下面内容</span>
+skip-external-locking
+
+<span class="token comment">#只能用IP地址检查客户端的登录，不用主机名</span>
+skip_name_resolve <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">#事务隔离级别，默认为可重复读，mysql默认可重复读级别（此级别下可能参数很多间隙锁，影响性能）</span>
+transaction_isolation <span class="token operator">=</span> READ-COMMITTED
+
+<span class="token comment">#数据库默认字符集,主流字符集支持一些特殊表情符号（特殊表情符占用4个字节）</span>
+character-set-server <span class="token operator">=</span> utf8mb4
+
+<span class="token comment">#数据库字符集对应一些排序等规则，注意要和character-set-server对应</span>
+collation-server <span class="token operator">=</span> utf8mb4_general_ci
+
+<span class="token comment">#设置client连接mysql时的字符集,防止乱码</span>
+<span class="token assign-left variable">init_connect</span><span class="token operator">=</span>‘SET NAMES utf8mb4‘
+
+<span class="token comment">#是否对sql语句大小写敏感，1表示不敏感</span>
+lower_case_table_names <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">#最大连接数</span>
+max_connections <span class="token operator">=</span> <span class="token number">400</span>
+
+<span class="token comment">#最大错误连接数</span>
+max_connect_errors <span class="token operator">=</span> <span class="token number">1000</span>
+
+<span class="token comment">#TIMESTAMP如果没有显示声明NOT NULL，允许NULL值</span>
+explicit_defaults_for_timestamp <span class="token operator">=</span> <span class="token boolean">true</span>
+
+<span class="token comment">#SQL数据包发送的大小，如果有BLOB对象建议修改成1G</span>
+max_allowed_packet <span class="token operator">=</span> 128M
+
+<span class="token comment">#MySQL连接闲置超过一定时间后(单位：秒)将会被强行关闭</span>
+<span class="token comment">#MySQL默认的wait_timeout  值为8个小时, interactive_timeout参数需要同时配置才能生效</span>
+interactive_timeout <span class="token operator">=</span> <span class="token number">1800</span>
+wait_timeout <span class="token operator">=</span> <span class="token number">1800</span>
+
+<span class="token comment">#内部内存临时表的最大值 ，设置成128M。</span>
+<span class="token comment">#比如大数据量的group by ,order by时可能用到临时表，</span>
+<span class="token comment">#超过了这个值将写入磁盘，系统IO压力增大</span>
+tmp_table_size <span class="token operator">=</span> <span class="token number">134217728</span>
+max_heap_table_size <span class="token operator">=</span> <span class="token number">134217728</span>
+
+<span class="token comment">#禁用mysql的缓存查询结果集功能</span>
+<span class="token comment">#后期根据业务情况测试决定是否开启</span>
+<span class="token comment">#大部分情况下关闭下面两项</span>
+query_cache_size <span class="token operator">=</span> <span class="token number">0</span>
+query_cache_type <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token comment">#####################用户进程分配到的内存设置BEGIN#############################</span>
+
+<span class="token comment">##每个session将会分配参数设置的内存大小</span>
+<span class="token comment">#用于表的顺序扫描，读出的数据暂存于read_buffer_size中，当buff满时或读完，将数据返回上层调用者</span>
+<span class="token comment">#一般在128kb ~ 256kb,用于MyISAM</span>
+<span class="token comment">#read_buffer_size = 131072</span>
+<span class="token comment">#用于表的随机读取，当按照一个非索引字段排序读取时会用到，</span>
+<span class="token comment">#一般在128kb ~ 256kb,用于MyISAM</span>
+<span class="token comment">#read_rnd_buffer_size = 262144</span>
+<span class="token comment">#order by或group by时用到</span>
+
+<span class="token comment">#建议先调整为2M，后期观察调整</span>
+sort_buffer_size <span class="token operator">=</span> <span class="token number">2097152</span>
+
+<span class="token comment">#一般数据库中没什么大的事务，设成1~2M，默认32kb</span>
+binlog_cache_size <span class="token operator">=</span> <span class="token number">524288</span>
+
+<span class="token comment">########################用户进程分配到的内存设置END############################</span>
+
+<span class="token comment">#在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中</span>
+<span class="token comment">#官方建议back_log = 50 + (max_connections / 5),封顶数为900</span>
+back_log <span class="token operator">=</span> <span class="token number">130</span>
+
+<span class="token comment">############################日志设置##########################################</span>
+
+<span class="token comment">#数据库错误日志文件</span>
+log_error <span class="token operator">=</span> error.log
+
+<span class="token comment">#慢查询sql日志设置</span>
+slow_query_log <span class="token operator">=</span> <span class="token number">1</span>
+slow_query_log_file <span class="token operator">=</span> slow.log
+
+<span class="token comment">#检查未使用到索引的sql</span>
+log_queries_not_using_indexes <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">#针对log_queries_not_using_indexes开启后，记录慢sql的频次、每分钟记录的条数</span>
+log_throttle_queries_not_using_indexes <span class="token operator">=</span> <span class="token number">5</span>
+
+<span class="token comment">#作为从库时生效,从库复制中如何有慢sql也将被记录</span>
+log_slow_slave_statements <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">#慢查询执行的秒数，必须达到此值可被记录</span>
+long_query_time <span class="token operator">=</span> <span class="token number">8</span>
+
+<span class="token comment">#检索的行数必须达到此值才可被记为慢查询</span>
+min_examined_row_limit <span class="token operator">=</span> <span class="token number">100</span>
+
+<span class="token comment">#mysql binlog日志文件保存的过期时间，过期后自动删除</span>
+expire_logs_days <span class="token operator">=</span> <span class="token number">5</span>
+
+<span class="token comment">############################主从复制设置#####################################</span>
+
+<span class="token comment">#开启mysql binlog功能</span>
+log-bin<span class="token operator">=</span>mysql-bin
+
+<span class="token comment">#binlog记录内容的方式，记录被操作的每一行</span>
+binlog_format <span class="token operator">=</span> ROW
+
+<span class="token comment">#对于binlog_format = ROW模式时，减少记录日志的内容，只记录受影响的列</span>
+binlog_row_image <span class="token operator">=</span> minimal
+
+<span class="token comment">#master status and connection information输出到表mysql.slave_master_info中</span>
+master_info_repository <span class="token operator">=</span> TABLE
+
+<span class="token comment">#the slave‘s position in the relay logs输出到表mysql.slave_relay_log_info中</span>
+relay_log_info_repository <span class="token operator">=</span> TABLE
+
+<span class="token comment">#作为从库时生效,想进行级联复制，则需要此参数</span>
+log_slave_updates
+
+<span class="token comment">#作为从库时生效,中继日志relay-log可以自我修复</span>
+relay_log_recovery <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">#作为从库时生效,主从复制时忽略的错误</span>
+slave_skip_errors <span class="token operator">=</span> ddl_exist_errors
+
+<span class="token comment">#####################redo log和binlog的关系设置BEGIN#########################</span>
+
+<span class="token comment">#(步骤1) prepare dml相关的SQL操作，然后将redo log buff中的缓存持久化到磁盘</span>
+<span class="token comment">#(步骤2)如果前面prepare成功，那么再继续将事务日志持久化到binlog</span>
+<span class="token comment">#(步骤3)如果前面成功，那么在redo log里面写上一个commit记录</span>
+<span class="token comment">#当innodb_flush_log_at_trx_commit和sync_binlog都为1时是最安全的，</span>
+<span class="token comment">#在mysqld服务崩溃或者服务器主机crash的情况下，binary log只有可能丢失最多一个语句或者一个事务。</span>
+<span class="token comment">#但是都设置为1时会导致频繁的io操作，因此该模式也是最慢的一种方式。</span>
+<span class="token comment">#当innodb_flush_log_at_trx_commit设置为0，mysqld进程的崩溃会导致上一秒钟所有事务数据的丢失。</span>
+<span class="token comment">#当innodb_flush_log_at_trx_commit设置为2，只有在操作系统崩溃或者系统掉电的情况下，上一秒钟所有事务数据才可能丢失。</span>
+
+<span class="token comment">#commit事务时,控制redo log buff持久化磁盘的模式 默认为1</span>
+innodb_flush_log_at_trx_commit <span class="token operator">=</span> <span class="token number">2</span>
+
+<span class="token comment">#commit事务时,控制写入mysql binlog日志的模式 默认为0</span>
+<span class="token comment">#innodb_flush_log_at_trx_commit和sync_binlog都为1时，mysql最为安全但性能上压力也是最大</span>
+sync_binlog <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">####################redo log和binlog的关系设置END############################</span>
+
+<span class="token comment">############################Innodb设置#####################################</span>
+
+<span class="token comment">#数据块的单位8k，默认是16k，16kCPU压力稍小，8k对select的吞吐量大</span>
+<span class="token comment">#innodb_page_size的参数值也影响最大索引长度，8k比16k的最大索引长度小</span>
+<span class="token comment">#innodb_page_size = 8192</span>
+
+<span class="token comment">#一般设置物理存储的60% ~ 70%</span>
+innodb_buffer_pool_size <span class="token operator">=</span> 1G
+
+<span class="token comment">#5.7.6之后默认16M</span>
+<span class="token comment">#innodb_log_buffer_size = 16777216</span>
+
+<span class="token comment">#该参数针对unix、linux，window上直接注释该参数.默认值为NULL</span>
+<span class="token comment">#O_DIRECT减少操作系统级别VFS的缓存和Innodb本身的buffer缓存之间的冲突</span>
+innodb_flush_method <span class="token operator">=</span> O_DIRECT
+
+<span class="token comment">#此格式支持压缩, 5.7.7之后为默认值</span>
+innodb_file_format <span class="token operator">=</span> Barracuda
+
+<span class="token comment">#CPU多核处理能力设置，假设CPU是2颗4核的，设置如下</span>
+<span class="token comment">#读多，写少可以设成2:6的比例</span>
+innodb_write_io_threads <span class="token operator">=</span> <span class="token number">4</span>
+innodb_read_io_threads <span class="token operator">=</span> <span class="token number">4</span>
+
+<span class="token comment">#提高刷新脏页数量和合并插入数量，改善磁盘I/O处理能力</span>
+<span class="token comment">#默认值200（单位：页）</span>
+<span class="token comment">#可根据磁盘近期的IOPS确定该值</span>
+innodb_io_capacity <span class="token operator">=</span> <span class="token number">500</span>
+
+<span class="token comment">#为了获取被锁定的资源最大等待时间，默认50秒，超过该时间会报如下错误:</span>
+<span class="token comment"># ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction</span>
+innodb_lock_wait_timeout <span class="token operator">=</span> <span class="token number">30</span>
+
+<span class="token comment">#调整buffer pool中最近使用的页读取并dump的百分比,通过设置该参数可以减少转储的page数</span>
+innodb_buffer_pool_dump_pct <span class="token operator">=</span> <span class="token number">40</span>
+
+<span class="token comment">#设置redoLog文件所在目录, redoLog记录事务具体操作内容</span>
+innodb_log_group_home_dir <span class="token operator">=</span> /opt/mysql/redolog/
+
+<span class="token comment">#设置undoLog文件所在目录, undoLog用于事务回滚操作</span>
+innodb_undo_directory <span class="token operator">=</span> /opt/mysql/undolog/
+
+<span class="token comment">#在innodb_log_group_home_dir中的redoLog文件数, redoLog文件内容是循环覆盖写入。</span>
+innodb_log_files_in_group <span class="token operator">=</span> <span class="token number">3</span>
+
+<span class="token comment">#MySql5.7官方建议尽量设置的大些，可以接近innodb_buffer_pool_size的大小</span>
+<span class="token comment">#之前设置该值较大时可能导致mysql宕机恢复时间过长，现在恢复已经加快很多了</span>
+<span class="token comment">#该值减少脏数据刷新到磁盘的频次</span>
+<span class="token comment">#最大值innodb_log_file_size * innodb_log_files_in_group &lt;= 512GB,单文件&lt;=256GB</span>
+innodb_log_file_size <span class="token operator">=</span> 1024M
+
+<span class="token comment">#设置undoLog文件所占空间可以回收</span>
+<span class="token comment">#5.7之前的MySql的undoLog文件一直增大无法回收</span>
+innodb_undo_log_truncate <span class="token operator">=</span> <span class="token number">1</span>
+innodb_undo_tablespaces <span class="token operator">=</span> <span class="token number">3</span>
+innodb_undo_logs <span class="token operator">=</span> <span class="token number">128</span>
+
+<span class="token comment">#5.7.7默认开启该参数 控制单列索引长度最大达到3072</span>
+<span class="token comment">#innodb_large_prefix = 1</span>
+
+<span class="token comment">#5.7.8默认为4个, Inodb后台清理工作的线程数</span>
+<span class="token comment">#innodb_purge_threads = 4</span>
+
+<span class="token comment">#通过设置配置参数innodb_thread_concurrency来限制并发线程的数量，</span>
+<span class="token comment">#一旦执行线程的数量达到这个限制，额外的线程在被放置到对队列中之前，会睡眠数微秒，</span>
+<span class="token comment">#可以通过设定参数innodb_thread_sleep_delay来配置睡眠时间</span>
+<span class="token comment">#该值默认为0,在官方doc上，对于innodb_thread_concurrency的使用，也给出了一些建议:</span>
+<span class="token comment">#(1)如果一个工作负载中，并发用户线程的数量小于64，建议设置innodb_thread_concurrency=0；</span>
+<span class="token comment">#(2)如果工作负载一直较为严重甚至偶尔达到顶峰，建议先设置innodb_thread_concurrency=128,</span>
+<span class="token comment">###并通过不断的降低这个参数，96, 80, 64等等，直到发现能够提供最佳性能的线程数</span>
+<span class="token comment">#innodb_thread_concurrency = 0</span>
+
+<span class="token comment">#强所有发生的死锁错误信息记录到error.log中，之前通过命令行只能查看最近一次死锁信息</span>
+innodb_print_all_deadlocks <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">############################其他设置########################################</span>
+
+<span class="token punctuation">[</span>mysqldump<span class="token punctuation">]</span>
+quick
+max_allowed_packet <span class="token operator">=</span> 128M
+
+<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+no-auto-rehash
+
+<span class="token punctuation">[</span>myisamchk<span class="token punctuation">]</span>
+key_buffer_size <span class="token operator">=</span> 20M
+sort_buffer_size <span class="token operator">=</span> 256k
+read_buffer <span class="token operator">=</span> 2M
+write_buffer <span class="token operator">=</span> 2M
+
+<span class="token punctuation">[</span>mysqlhotcopy<span class="token punctuation">]</span>
+interactive-timeout
+
+<span class="token punctuation">[</span>mysqld_safe<span class="token punctuation">]</span>
+<span class="token comment">#增加每个进程的可打开文件数量</span>
+open-files-limit <span class="token operator">=</span> <span class="token number">28192</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br></div></div><p><strong>注意 : 上述的文件不建议全部拷贝使用，当需要哪块时单独复制是最好的，因为每台服务器的需求都不一样</strong></p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022-3-9 9:26:32 ├F10: PM┤</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/blogs/MySQL/MySQL1.html">
+            MySQL1
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-2" data-v-cb1513f6><a href="/blogs/MySQL/MySQL_linux.html#安装-mysql" class="sidebar-link reco-side-安装-mysql" data-v-cb1513f6>安装 MySQL</a></li><li class="level-2" data-v-cb1513f6><a href="/blogs/MySQL/MySQL_linux.html#mysql-数据库设置" class="sidebar-link reco-side-mysql-数据库设置" data-v-cb1513f6>MySQL 数据库设置</a></li><li class="level-2" data-v-cb1513f6><a href="/blogs/MySQL/MySQL_linux.html#my-cnf-完整配置" class="sidebar-link reco-side-my-cnf-完整配置" data-v-cb1513f6>my.cnf 完整配置</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.f12c8360.js" defer></script><script src="/assets/js/3.37e70878.js" defer></script><script src="/assets/js/1.2f593495.js" defer></script><script src="/assets/js/22.4724fc4f.js" defer></script>
+  </body>
+</html>
