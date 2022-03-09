@@ -58,7 +58,7 @@ module.exports = {
         "items": [
           {
             "text": "GitHub",
-            "link": "https://github.com/recoluan",
+            "link": "https://github.com/yixihan",
             "icon": "reco-github"
           }
         ]
@@ -71,10 +71,12 @@ module.exports = {
         "plugin",
         "api"
       ],
-      "/blogs/category1/": [
-        "092101",
-        "121501",
-        "SpringCloud1"
+      "/blogs/SpringCloud/": [
+        "SpringCloud1",
+        "SpringCloud2",
+        "SpringCloud3",
+        "SpringCloud4",
+        "SpringCloud5",
       ]
     },
     "type": "blog",
