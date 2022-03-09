@@ -38,17 +38,17 @@ module.exports = {
     "subSidebar": 'auto',
     "nav": [
       {
-        "text": "Home",
+        "text": "主页",
         "link": "/",
         "icon": "reco-home"
       },
       {
-        "text": "TimeLine",
+        "text": "时间线",
         "link": "/timeline/",
         "icon": "reco-date"
       },
       {
-        "text": "Docs",
+        "text": "文档",
         "icon": "reco-message",
         "items": [
           {
@@ -58,17 +58,18 @@ module.exports = {
         ]
       },
       {
-        "text": "Contact",
+        "text": "github",
         "icon": "reco-message",
         "items": [
           {
             "text": "GitHub",
-            "link": "https://github.com/recoluan",
+            "link": "https://github.com/yixihan",
             "icon": "reco-github"
           }
         ]
       }
     ],
+    // 文章侧边栏设置
     "sidebar": {
       "/docs/theme-reco/": [
         "",
@@ -76,36 +77,39 @@ module.exports = {
         "plugin",
         "api"
       ],
-      "/blogs/category1/": [
-        "092101",
-        "121501",
-        "SpringCloud1"
+      "/blogs/SpringCloud/": [
+        "SpringCloud1",
+        "SpringCloud2",
+        "SpringCloud3",
+        "SpringCloud4",
+        "SpringCloud5",
       ]
     },
     "type": "blog",
     "blogConfig": {
       "category": {
         "location": 2,
-        "text": "Category"
+        "text": "文章"
       },
       "tag": {
         "location": 3,
-        "text": "Tag"
+        "text": "标签"
       }
     },
+    // 友情链接
     "friendLink": [
-      {
-        "title": "午后南杂",
-        "desc": "Enjoy when you can, and endure when you must.",
-        "email": "1156743527@qq.com",
-        "link": "https://www.recoluan.com"
-      },
-      {
-        "title": "vuepress-theme-reco",
-        "desc": "A simple and beautiful vuepress Blog & Doc theme.",
-        "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-        "link": "https://vuepress-theme-reco.recoluan.com"
-      }
+      // {
+      //   "title": "午后南杂",
+      //   "desc": "Enjoy when you can, and endure when you must.",
+      //   "email": "1156743527@qq.com",
+      //   "link": "https://www.recoluan.com"
+      // },
+      // {
+      //   "title": "vuepress-theme-reco",
+      //   "desc": "A simple and beautiful vuepress Blog & Doc theme.",
+      //   "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
+      //   "link": "https://vuepress-theme-reco.recoluan.com"
+      // }
     ],
     plugins: plug,
     "logo": "/logo.png",
