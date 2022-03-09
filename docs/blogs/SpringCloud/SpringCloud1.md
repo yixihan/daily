@@ -39,19 +39,7 @@ mysql : 5.7.36
 
 ## 文章选择
 
-[consul + ribbon + openfeign + hystrix](D:\JAVA\tpyora\SpringCloud4.md)
-
-[gateway + config + bus + stream + sleuth](D:\JAVA\tpyora\SpringCloud3.md)
-
-[nacos + sentinel](D:\JAVA\tpyora\SpringCloud4.md)
-
-[Seata](D:\JAVA\tpyora\SpringCloud5.md)
-
-
-
 ## cloud 升级
-
-
 
 ### 服务注册中心
 

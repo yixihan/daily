@@ -14,5 +14,8 @@
     "docs:dev": "vuepress dev docs --temp .temp",
     "docs:build": "vuepress build docs",
     "deploy": "bash deploy.sh"
+  },
+  "dependencies": {
+    "@vue/cli-plugin-pwa": "^5.0.1"
   }
 }

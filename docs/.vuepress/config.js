@@ -1,33 +1,12 @@
 const plug = require('./config/pluginsConf')
+const nav = require('./config/nav')
+const headConf = require('./config/headConf')
+
+
 module.exports = {
   "title": "易曦翰",
   "description": "易曦翰的个人博客",
-  "head": [
-    [
-      "link",
-      {
-        "rel": "icon",
-        "href": "/favicon.ico"
-      }
-    ],
-    [
-      "meta",
-      {
-        "name": "viewport",
-        "content": "width=device-width,initial-scale=1,user-scalable=no"
-      }
-    ],
-    ['meta', { name: 'keywords', content: '易曦翰' }],
-    ['meta', { name: 'author', content: '易曦翰' }],
-    ['link', { rel: 'manifest', href: '/manifest.json' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: 'apple-touch-icon', href: '/icons/144.png' }],
-    ['link', { rel: 'mask-icon', href: '/icons/144.png', color: '#3eaf7c' }],
-    ['meta', { name: 'msapplication-TileImage', content: '/icons/144.png' }],
-    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
-  ],
+  "head": headConf,
   locales: {
     '/': {
       lang: 'zh-CN'
@@ -36,39 +15,7 @@ module.exports = {
   "theme": "reco",
   "themeConfig": {
     "subSidebar": 'auto',
-    "nav": [
-      {
-        "text": "主页",
-        "link": "/",
-        "icon": "reco-home"
-      },
-      {
-        "text": "时间线",
-        "link": "/timeline/",
-        "icon": "reco-date"
-      },
-      {
-        "text": "文档",
-        "icon": "reco-message",
-        "items": [
-          {
-            "text": "vuepress-reco",
-            "link": "/docs/theme-reco/"
-          }
-        ]
-      },
-      {
-        "text": "github",
-        "icon": "reco-message",
-        "items": [
-          {
-            "text": "GitHub",
-            "link": "https://github.com/yixihan",
-            "icon": "reco-github"
-          }
-        ]
-      }
-    ],
+    "nav": nav,
     // 文章侧边栏设置
     "sidebar": {
       "/docs/theme-reco/": [
@@ -89,7 +36,7 @@ module.exports = {
     "blogConfig": {
       "category": {
         "location": 2,
-        "text": "文章"
+        "text": "分类"
       },
       "tag": {
         "location": 3,
@@ -118,8 +65,8 @@ module.exports = {
     "lastUpdated": "Last Updated",
     "author": "yixihan",
     "authorAvatar": "/avatar.png",
-    "record": "xxxx",
-    "startYear": "2017"
+    "record": "蜀ICP备2021030835号",
+    "startYear": "2022"
   },
   "markdown": {
     "lineNumbers": true
