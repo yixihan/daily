@@ -14,23 +14,56 @@ module.exports = {
   },
   "theme": "reco",
   "themeConfig": {
-    "subSidebar": 'auto',
+    
+    // 评论功能
+    valineConfig: {
+      appId: 'BOgljzlVmuYgXTshtrW2vs3q-gzGzoHsz',// your appId
+      appKey: 'wEKrHTB35XUU1J3KQsxmNKCx', // your appKey
+    },
+    
+    // 主页顶部栏设置
     "nav": nav,
-    // 文章侧边栏设置
+    
+    // 侧边栏设置
+    "subSidebar": 'auto',
     "sidebar": {
-      "/docs/theme-reco/": [
-        "",
-        "theme",
-        "plugin",
-        "api"
-      ],
       "/blogs/SpringCloud/": [
         "SpringCloud1",
         "SpringCloud2",
         "SpringCloud3",
         "SpringCloud4",
-        "SpringCloud5",
-      ]
+        "SpringCloud5",      
+      ],
+      "/blogs/MySQL/": [
+        "MySQL_linux",
+        "MySQL1",
+        "MySQL2",
+        "MySQL3",
+        "MySQL4",
+      ],
+      "/blogs/RabbitMQ/": [
+        "RabbitMQ_alone",
+        "RabbitMQ_colony",
+        "RabbitMQ1",
+        "RabbitMQ2",
+      ],
+      "/blogs/JavaSE/": [
+        "JavaSE1",
+        "JavaSE2",
+        "JavaSE3",
+        "JavaSE4",
+        "JavaSE5",
+        "JavaSE6",
+        "JDBC",
+      ],
+      "/blogs/Nginx/": [
+        "Nginx"
+      ],
+      "/blogs/Zookeeper/": [
+        "zookeeper"
+      ],
+
+
     },
     "type": "blog",
     "blogConfig": {
@@ -63,7 +96,7 @@ module.exports = {
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "Last Updated",
-    "author": "yixihan",
+    "author": "易曦翰",
     "authorAvatar": "/avatar.png",
     "record": "蜀ICP备2021030835号",
     "startYear": "2022"

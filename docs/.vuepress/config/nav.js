@@ -32,15 +32,19 @@ module.exports = [
       {
         "text": "ASCII 文字在线生成",
         "link": "https://www.bootschool.net/ascii"
+      },
+      {
+        "text": "在线高清图片",
+        "link": "https://www.pexels.com/zh-cn"
       }
     ]
   },
   {
-    "text": "关于",
+    "text": "我",
     "icon": "reco-account",
     "items": [
       {
-        "text": "GitHub",
+        "text": "github",
         "link": "https://github.com/yixihan",
         "icon": "reco-github"
       },
@@ -49,11 +53,6 @@ module.exports = [
         "link": "https://gitee.com/yixihan",
         "icon": "reco-mayun"
       },
-      {
-        "text": "LeanCloud",
-        "link": "https://console.leancloud.cn/apps",
-        "icon": "iconfont icon-gongju"
-      }
     ]
   }
 ]
