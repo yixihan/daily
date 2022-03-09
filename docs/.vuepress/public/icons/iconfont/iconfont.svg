@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+  <metadata>Created by iconfont</metadata>
+  <defs>
+  <font id="iconfont" horiz-adv-x="1024">
+    <font-face
+      font-family="iconfont"
+      font-weight="400"
+      font-stretch="normal"
+      units-per-em="1024"
+      ascent="896"
+      descent="-128"
+    />
+      <missing-glyph />
+      
+      <glyph glyph-name="gongju" unicode="&#58882;" d="M835.4 13c14-14 33.6-14 47.6 0s14 33.6 0 47.6-33.6 14-47.6 0c-11.2-14-11.2-36.4 0-47.6z m95.2 95.2c39.2-39.2 39.2-103.6 0-142.8-39.2-39.2-103.6-39.2-142.8 0L440.5 312.7c-98-42-215.7-22.4-296.9 58.8-70 70-95.2 170.9-70 260.5 11.1 44.8 190.4-238.1 308-117.6C502.1 634.8 219.2 811.3 264 822.5c89.6 25.2 190.5 0 260.5-70 81.2-81.2 98-198.9 58.8-296.9l347.3-347.4z m0 0"  horiz-adv-x="1024" />
+      
+    </font>
+  </defs>
+</svg>
