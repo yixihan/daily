@@ -1,6 +1,7 @@
 ---
 title: SpringCloud2
 date: 2022-02-22
+sidebar: true
 tags:
  - SpringCloud
 categories:

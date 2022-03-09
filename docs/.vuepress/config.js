@@ -28,6 +28,11 @@ module.exports = {
     ['meta', { name: 'msapplication-TileImage', content: '/icons/144.png' }],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
   ],
+  locales: {
+    '/': {
+      lang: 'zh-CN'
+    }
+  },
   "theme": "reco",
   "themeConfig": {
     "subSidebar": 'auto',
